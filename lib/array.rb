@@ -38,5 +38,49 @@ class Array
         return ans
     end
 
+    def my_count(val)
+        count = 0
+        self.each do |ele|
+            if ele == val
+                count += 1
+            end
+        end
+        return count
+    end
+
+    def my_index(val)
+        self.each_with_index do |ele, i|
+            if ele == val
+                return i
+            end
+        end
+        return nil
+    end
+
+    def my_uniq
+        ans = []
+        self.each do |ele|
+            if ans.include?(ele) == false
+                ans << ele
+            end
+        end
+        return ans
+    end
+
+    def my_transpose
+        ans = Array.new(self.length) {Array.new(self.length,0)}
+
+        i = 0
+        while i < self.length do
+            k = 0
+            while k < self[i].length do
+                ans[k][i] = self[i][k]
+                k += 1
+            end
+            i += 1
+        end
+
+        return ans
+    end
 
 end
